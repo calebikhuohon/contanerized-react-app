@@ -9,3 +9,13 @@ script:
     - docker run -e CI=true calebikhuohon/containerized-react npm run test
     # - docker run -e CI=true calebikhuohon/containerized-react npm run build
     # - docker run calebikhuohon/containerized-react npm run test -- --coverage
+
+deploy: 
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "containerized-react-app"
+    env: "ContainerizedReactApp-env"
+    bucket_name: "elasticbeanstalk-us-east-1-864077713985"
+    bucket_path: "containerized-react-app"
+    on: 
+        branch: master
